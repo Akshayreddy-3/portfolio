@@ -5,6 +5,7 @@
 import { readFileSync, writeFileSync, mkdirSync, rmSync, cpSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { createHash } from 'node:crypto';
 import YAML from 'yaml';
 import { art } from './src/art.mjs';
 
@@ -193,6 +194,23 @@ const NAV = [
 const siteUrl = missing(c.site.url) ? null : c.site.url.replace(/\/$/, '');
 const pages = [];
 
+// Content-Security-Policy, sent as a meta tag because GitHub Pages cannot set
+// headers. Only this site's own files may load; the one inline script is
+// allowed by its hash, so nothing injected into a page could run.
+const INLINE_JS = "document.documentElement.className='js'";
+const CSP = [
+  "default-src 'self'",
+  `script-src 'self' 'sha256-${createHash('sha256').update(INLINE_JS).digest('base64')}'`,
+  "style-src 'self'",
+  "style-src-attr 'unsafe-inline'",
+  "img-src 'self' data:",
+  "font-src 'self'",
+  "connect-src 'self'",
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'none'",
+].join('; ');
+
 const FAVICON =
   "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23000'/%3E%3Ccircle cx='32' cy='32' r='13' fill='none' stroke='%23f5f5f7' stroke-width='6'/%3E%3C/svg%3E";
 
@@ -207,6 +225,8 @@ function layout({ path, title, description, body, jsonLd }) {
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="${CSP}">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(description)}">
@@ -220,7 +240,7 @@ ${canonical}
 <link rel="icon" href="${FAVICON}">
 <link rel="preload" href="${root}fonts/${FONTS[0][1]}" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="${root}styles.css">
-<script>document.documentElement.className='js'</script>
+<script>${INLINE_JS}</script>
 <script src="${root}site.js" defer></script>
 ${jsonLd ? `<script type="application/ld+json">${JSON.stringify(jsonLd).replace(/</g, '\\u003c')}</script>` : ''}
 </head>

@@ -32,4 +32,4 @@ createServer(async (req, res) => {
     res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
     res.end('Not found');
   }
-}).listen(PORT, () => console.log(`Preview running at http://localhost:${PORT}`));
+}).listen(PORT, '127.0.0.1', () => console.log(`Preview running at http://localhost:${PORT}`));
