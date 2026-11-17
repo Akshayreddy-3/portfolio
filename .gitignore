@@ -1,0 +1,6 @@
+node_modules/
+dist/
+.DS_Store
+# Reference notes from other sites and local tool settings: not for the public repository
+Design/
+.claude/

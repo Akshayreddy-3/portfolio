@@ -1,0 +1,308 @@
+# =============================================================================
+# content.yaml — ALL site content lives in this one file.
+#
+# How to edit
+#   - Change any text between quotes, save, then run:  npm run build
+#   - Anything that starts with "TO BE SUPPLIED" is a placeholder. Replace the
+#     whole value with the real one. Search this file for TO BE SUPPLIED to
+#     find them all. The build also prints the list.
+#   - Files (resume PDF, screenshots) go in the public/ folder. Write only the
+#     filename here, for example:  resume: "resume.pdf"
+#   - In text you can use **bold** and [link text](https://example.com).
+#   - To add a project, copy one whole block under "projects:" and edit it.
+#     It gets a card and its own page automatically.
+#   - Keep the indentation (two spaces). Do not use tabs.
+# =============================================================================
+
+site:
+  name: "Akshay Mamilla"
+  # Full address of the live site. Used for the sitemap and for the canonical
+  # links search engines read.
+  url: "https://akshaymamilla.com"
+  # true  = draft preview. Unfinished buttons look finished but do nothing, and
+  #         unfinished text shows a small "to be supplied" marker. A "Draft
+  #         preview" button in the corner outlines everything still missing.
+  # false = unfinished items are hidden from visitors. Set this before sharing
+  #         the site with recruiters.
+  showPlaceholders: false
+  footerLine: "Akshay Mamilla · Houston, TX · Open to roles in Houston, across Texas and remote"
+
+contact:
+  email: "TO BE SUPPLIED: email"
+  phone: "TO BE SUPPLIED: phone"
+  linkedin: "TO BE SUPPLIED: LinkedIn URL"
+  github: "TO BE SUPPLIED: GitHub URL"
+  # Put the PDF in public/ and write its filename here.
+  resume: "TO BE SUPPLIED: resume PDF"
+
+# -----------------------------------------------------------------------------
+# HOME
+# -----------------------------------------------------------------------------
+home:
+  pageTitle: "Akshay Mamilla | Data, Software, AI and IT Support | Houston, TX"
+  metaDescription: "Portfolio of Akshay Mamilla, an MIS graduate student at the University of Houston-Clear Lake working in data analysis, frontend development, AI and IT support. Based in Houston, TX."
+  eyebrow: "Houston, TX"
+  heading: "Akshay Mamilla"
+  subheading: "Data analysis, software, AI and IT support, based in Houston, TX"
+  intro:
+    - "I'm finishing an MS in Management Information Systems at the University of Houston-Clear Lake, graduating in December 2026. I build Power BI dashboards, write Python and SQL, develop React frontends and support the systems people rely on."
+    - "I'm open to full-time roles and internships in Houston, across Texas and remote."
+
+  areasEyebrow: "What I do"
+  areasHeading: "Four areas, one toolkit"
+  areas:
+    - title: "Data analysis and BI"
+      art: "chart"
+      text: "I built a Power BI dashboard for monitoring CT and MRI equipment fleets during my internship at United Imaging Healthcare, including the data model and DAX measures behind it. Earlier, I interned in data analytics with AICTE / VOIS for Tech."
+    - title: "Software and frontend"
+      art: "code"
+      text: "I build with React and Python, and I test what I ship: my Google Drive organizer has 45 unit tests. I was a frontend intern with IBM SkillsBuild."
+    - title: "AI and machine learning"
+      art: "nodes"
+      text: "I built a document classifier on the Gemini Vision API for a real staffing agency. I was an AI research intern at A Square Solutions, and I've helped in Python and Data Analytics with AI lab sessions at UHCL."
+    - title: "IT and systems support"
+      art: "network"
+      text: "I worked as a Remote Services Support Intern at United Imaging Healthcare. I hold the AWS Cloud Practitioner and CCST Networking certifications."
+
+  skillsHeading: "Skills"
+  skills:
+    - "Python"
+    - "SQL"
+    - "Power BI"
+    - "React / frontend development"
+    - "AWS"
+
+  featuredEyebrow: "Projects"
+  featuredHeading: "Recent projects"
+
+  aboutHeading: "About me"
+  about:
+    - "I came to information systems from engineering. My undergraduate background is in Electronics and Communication Engineering at JNTU, and I'm now completing an MS in Management Information Systems at the University of Houston-Clear Lake."
+    - "At UHCL I've been a Graduate Teaching Assistant for ISAM 1305, Business Computer Applications."
+    - "I live in Houston, TX."
+
+  cta:
+    heading: "Hiring for a data, software, AI or IT support role?"
+    text: "I'd like to hear about it. Download my resume or send me an email."
+
+# -----------------------------------------------------------------------------
+# PROJECTS PAGE (the list)
+# -----------------------------------------------------------------------------
+projectsPage:
+  pageTitle: "Projects | Akshay Mamilla | Python, AI and Power BI"
+  metaDescription: "Projects by Akshay Mamilla: an AI document classifier for Google Drive built in Python, and a Power BI equipment monitoring dashboard."
+  heading: "Projects"
+  intro:
+    - "These are projects I built for real users: a Python and AI tool for a staffing agency, and a Power BI dashboard from my internship at United Imaging Healthcare. Each one has a short case study covering the problem, what I built and the result."
+  cta:
+    heading: "Want to talk through one of these?"
+    text: ""
+
+# -----------------------------------------------------------------------------
+# PROJECTS — copy a whole block (from "- slug:" down) to add another.
+#   slug             the page address: /projects/<slug>/  (lowercase, hyphens)
+#   featured         true = also shown on the Home page
+#   art              illustration on its tile: "sorter", "dashboard", "chart", "code",
+#                    "nodes" or "network". Leave it out for a plain pattern.
+#   summary          card text on the Projects page
+#   featuredSummary  card text on the Home page
+#   metrics          big figures. Real numbers only.
+#   glance           the "At a glance" list
+#   sections         heading + paragraphs and/or bullets
+#   links            buttons such as a GitHub repo
+#   screenshots      files in public/, each with alt text and a caption
+#   closingSections  optional sections shown after the screenshots
+# -----------------------------------------------------------------------------
+projects:
+  - slug: "google-drive-organizer"
+    featured: true
+    title: "Google Drive Organizer and Document Classifier"
+    art: "sorter"
+    pageTitle: "Google Drive Organizer and AI Document Classifier | Akshay Mamilla"
+    metaDescription: "A Python tool that uses the Gemini Vision API and Google Drive API to classify, rename and file documents for a staffing agency, cutting manual file management by 95%."
+    tags: ["Python", "Gemini Vision API", "Google Drive API", "AES-256"]
+    summary: "Classifies, renames and files documents for a staffing agency. 45 unit tests. 95% less manual file management."
+    featuredSummary: "An AI tool built for a staffing agency that classifies, renames and files documents in Google Drive. It cut manual file management by 95%."
+    intro:
+      - "An AI document classifier that keeps a staffing agency's Google Drive organized. It reads each file with the Gemini Vision API, works out what kind of document it is, gives it a consistent name and moves it to the right folder."
+    metrics:
+      - figure: "95%"
+        label: "less manual file management"
+      - figure: "45"
+        label: "unit tests"
+    glance:
+      - label: "Built for"
+        value: "a staffing agency"
+      - label: "My role"
+        value: "solo developer"
+      - label: "Tech"
+        value: "Python, Gemini Vision API, Google Drive API, AES-256 encryption"
+      - label: "Tests"
+        value: "45 unit tests"
+      - label: "Result"
+        value: "95% reduction in manual file management"
+    sections:
+      - heading: "The problem"
+        paragraphs:
+          - "A staffing agency handles a steady flow of documents, and each one had to be opened, identified, renamed and filed by hand."
+      - heading: "What I built"
+        bullets:
+          - "**Classification.** The Gemini Vision API reads each file and decides what type of document it is."
+          - "**Renaming.** Files get consistent names based on their contents."
+          - "**Filing.** The tool moves each file into the right Google Drive folder through the Google Drive API."
+          - "**Encryption.** Sensitive data is protected with AES-256 encryption."
+          - "**Testing.** 45 unit tests cover the tool."
+      - heading: "The result"
+        paragraphs:
+          - "Manual file management at the agency dropped by 95%."
+    mediaHeading: "Code and screenshots"
+    mediaNote: ""
+    links:
+      - label: "GitHub repository"
+        url: "TO BE SUPPLIED: public repo URL"
+    screenshots:
+      - file: "TO BE SUPPLIED: screenshots with no client data visible"
+        alt: "Screenshot of the Google Drive Organizer and Document Classifier"
+        caption: ""
+    cta:
+      heading: "Need something similar automated?"
+      text: "I'm happy to walk through how this works."
+
+  - slug: "equipment-monitoring-dashboard"
+    featured: true
+    title: "Equipment Monitoring Dashboard"
+    art: "dashboard"
+    pageTitle: "Equipment Monitoring Dashboard in Power BI | Akshay Mamilla"
+    metaDescription: "A two-page Power BI dashboard for monitoring CT and MRI equipment fleets, with a data model and DAX measures built on equipment-monitoring exports."
+    tags: ["Power BI", "DAX", "Data modeling"]
+    summary: "An executive summary and a device drill-down view for CT and MRI equipment fleets."
+    featuredSummary: "A two-page Power BI dashboard for monitoring CT and MRI equipment fleets, built during my internship at United Imaging Healthcare."
+    intro:
+      - "A Power BI dashboard for monitoring fleets of CT and MRI equipment. I built it during my internship at United Imaging Healthcare, from the data model and DAX measures through to the two report pages."
+    metrics: []
+    glance:
+      - label: "Built during"
+        value: "Remote Services Support internship, United Imaging Healthcare"
+      - label: "Tool"
+        value: "Power BI"
+      - label: "Work"
+        value: "data modeling and DAX measures on equipment-monitoring exports"
+      - label: "Pages"
+        value: "executive summary and device detail / drill-down"
+      - label: "Built for"
+        value: "managers and the support team"
+    sections:
+      - heading: "What I built"
+        bullets:
+          - "**A data model** built on equipment-monitoring exports."
+          - "**DAX measures** that drive the figures on both pages."
+          - "**An executive summary page** that gives managers a view of the fleet at a glance."
+          - "**A device detail page** that lets the support team drill down into a single device."
+      - heading: "What it tracks"
+        paragraphs:
+          - "The dashboard covers equipment status and health, alerts and errors, and uptime across the fleet."
+    mediaHeading: "Screenshots"
+    mediaNote: "The images below come from a rebuilt version of the dashboard that runs on sample data. They contain no real equipment, customer or site information."
+    links: []
+    screenshots:
+      - file: "TO BE SUPPLIED: screenshot from the sample-data rebuild"
+        alt: "Executive summary page of the equipment monitoring dashboard, shown with sample data"
+        caption: "Executive summary page"
+      - file: "TO BE SUPPLIED: screenshot from the sample-data rebuild"
+        alt: "Device detail page of the equipment monitoring dashboard, shown with sample data"
+        caption: "Device detail page"
+    # Sections shown after the screenshots.
+    closingSections:
+      - heading: "Confidentiality"
+        paragraphs:
+          - "This work was done for an employer, so this page describes it in general terms. It leaves out internal system names, customers, sites and real figures."
+    cta:
+      heading: "Looking for someone to build Power BI reports?"
+      text: "I can walk you through the model and measures."
+
+# -----------------------------------------------------------------------------
+# EXPERIENCE & CERTIFICATIONS
+# -----------------------------------------------------------------------------
+experiencePage:
+  pageTitle: "Experience and Certifications | Akshay Mamilla | Houston, TX"
+  metaDescription: "Akshay Mamilla's experience in IT support, data analytics, AI research and frontend development, with AWS Cloud Practitioner, Power BI and CCST Networking certifications."
+  heading: "Experience and certifications"
+  intro:
+    - "My experience runs across remote IT support, data analytics, AI research, frontend development and teaching. The full detail is in my resume."
+  experienceHeading: "Experience"
+  educationHeading: "Education"
+  certificationsHeading: "Certifications"
+  cta:
+    heading: "Want the one-page version?"
+    text: ""
+
+experience:
+  - role: "Remote Services Support Intern (part-time)"
+    org: "United Imaging Healthcare NAM, Inc."
+    location: "Houston, TX"
+    dates: "July 2026 to October 2026"
+    bullets:
+      - "Built a Power BI dashboard for monitoring CT and MRI equipment fleets, including the data model and DAX measures. [Read the case study](/projects/equipment-monitoring-dashboard/)"
+
+  - role: "Graduate Teaching Assistant"
+    org: "University of Houston-Clear Lake"
+    location: ""
+    dates: "TO BE SUPPLIED: dates"
+    bullets:
+      - "Teaching assistant for ISAM 1305, Business Computer Applications."
+      - "Helped in Python and Data Analytics with AI lab sessions."
+
+  - role: "AI Research Intern"
+    org: "A Square Solutions"
+    location: ""
+    dates: "TO BE SUPPLIED: dates"
+    bullets:
+      - "TO BE SUPPLIED: what you did in this role"
+
+  - role: "Frontend Intern"
+    org: "IBM SkillsBuild"
+    location: ""
+    dates: "TO BE SUPPLIED: dates"
+    bullets:
+      - "TO BE SUPPLIED: what you did in this role"
+
+  - role: "Data Analytics Intern"
+    org: "AICTE / VOIS for Tech"
+    location: ""
+    dates: "TO BE SUPPLIED: dates"
+    bullets:
+      - "TO BE SUPPLIED: what you did in this role"
+
+education:
+  - degree: "MS in Management Information Systems"
+    school: "University of Houston-Clear Lake"
+    detail: "Graduating December 2026"
+  - degree: "Undergraduate studies in Electronics and Communication Engineering"
+    school: "JNTU"
+    detail: ""
+
+certifications:
+  - name: "TO BE SUPPLIED: exact Power BI certification name"
+    earned: "TO BE SUPPLIED: date"
+    verifyUrl: "TO BE SUPPLIED: verification link"
+  - name: "AWS Cloud Practitioner"
+    earned: "TO BE SUPPLIED: date"
+    verifyUrl: "TO BE SUPPLIED: verification link"
+  - name: "CCST Networking"
+    earned: "TO BE SUPPLIED: date"
+    verifyUrl: "TO BE SUPPLIED: verification link"
+
+# -----------------------------------------------------------------------------
+# CONTACT
+# -----------------------------------------------------------------------------
+contactPage:
+  pageTitle: "Contact Akshay Mamilla | Data Analyst and Developer in Houston, TX"
+  metaDescription: "Email Akshay Mamilla, connect on LinkedIn or download his resume. Open to full-time roles and internships in Houston, across Texas and remote."
+  heading: "Contact Akshay Mamilla"
+  intro:
+    - "If you're hiring a data analyst, Power BI developer, frontend developer or IT support specialist in Houston, or for a remote team, I'd like to hear from you. I'm open to full-time roles and internships."
+  waysHeading: "Get in touch"
+  resumeHeading: "Resume"
+  resumeText: "Download my resume as a PDF."
+  locationHeading: "Where I'm based"
+  locationText: "Houston, TX. Open to roles in Houston, across Texas and remote."
